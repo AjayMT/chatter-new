@@ -1,1 +1,17 @@
 /* CSS declarations go here */
+body {
+	font-family: Helvetica, sans-serif;
+	font-weight: 200;
+}
+
+.group.selected {
+	background-color: yellow;
+}
+
+.group .name {
+	color: #000;
+}
+
+.cgroup {}
+
+.pmessage {}

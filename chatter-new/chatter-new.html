@@ -1,13 +1,38 @@
 <head>
-  <title>chatter-new</title>
+  <title>Chatter</title>
 </head>
 
 <body>
-  {{> hello}}
+  {{> mainPage}}
 </body>
 
-<template name="hello">
-  <h1>Hello World!</h1>
-  {{greeting}}
-  <input type="button" value="Click" />
+<template name="mainPage">
+  {{loginButtons align=right}}<br />
+
+  {{#each groups}}
+  {{> group}}
+  {{else}}
+  No groups yet.<br />
+  {{/each}}
+
+  <input type="text" name="gname"/>
+  <input type="button" class="cgroup" value="Create Group"/><br />
+
+  {{#if group}}
+  {{#each messages}}
+  {{from}}: {{message}}<br />
+  {{else}}
+  No messages yet.<br />
+  {{/each}}
+
+  <input type="text" name="message"/>
+  <input type="button" class="pmessage" value="Post"/>
+
+  {{/if}}
+</template>
+
+<template name="group">
+  <div class="group {{selected}}">
+	<span class="name">{{name}}</span>
+  </div>
 </template>
