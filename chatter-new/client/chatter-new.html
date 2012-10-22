@@ -1,0 +1,63 @@
+<head>
+  <title>Chatter</title>
+</head>
+
+<body>
+  {{> mainPage}}
+</body>
+
+<template name="mainPage">
+  <div>{{loginButtons}}</div>
+  <div class="container-fluid">
+  <div class="row-fluid">
+	<div class="span5">
+	  <h1>Groups</h1>
+	</div>
+	<div class="span7">
+	  <h1>Messages</h1>
+	</div>
+  </div>
+  <hr />
+  <div class="row-fluid">
+  <div class="span5 well">
+  <ul class="unstyled">
+  {{#each groups}}
+  {{> group}}
+  {{else}}
+  No groups yet.
+  {{/each}}
+  </ul>
+
+  <div class="form-inline">
+    <input type="text" name="gname" placeholder="Group Name"/>
+    <button class="cgroup btn btn-primary" type="button">Create Group</button>
+  </div>
+  </div>
+
+  <div class="span7">
+  {{#if group}}
+  <ul class="unstyled">
+  {{#each messages}}
+  <li><span class="muted">{{from}}</span>: {{message}}</li>
+  {{else}}
+  No messages yet.
+  {{/each}}
+  </ul>
+
+  <div class="form-inline">
+    <input type="text" name="message" placeholder="Message"/>
+	<button class="pmessage btn btn-primary" type="button">Post</button>
+  </div>
+  {{else}}
+  Select a group.
+  {{/if}}
+  </div>
+  </div>
+  </div>
+</template>
+
+<template name="group">
+  <li class="{{selected}}">
+	{{name}}
+  </li>
+</template>

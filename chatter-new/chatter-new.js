@@ -29,21 +29,27 @@ if (Meteor.isClient) {
   };
 
   Template.mainPage.events({
-    "click input.cgroup": function () {
+    "click button.cgroup": function () {
 	  var tval = document.getElementsByName("gname")[0].value;
-	  Groups.insert({name: tval});
+	  Groups.insert({ name: tval });
 	  document.getElementsByName("gname")[0].value = "";
 	},
-	"click input.pmessage": function () {
+	"click button.pmessage": function () {
 	  var tval = document.getElementsByName("message")[0].value;
-	  if (tval != "") { Messages.insert({ group: Session.get("current_group"), message: tval, from: "ajay" }); }
+      if (Meteor.user()) {
+        if (Meteor.user().username) {
+		  Messages.insert({ message: tval, from: Meteor.user().username, group: Session.get("current_group") });
+		} else {
+	      Messages.insert({ message: tval, from: Meteor.user().emails[0].address, group: Session.get("current_group") });
+        }
+	  } else {
+	    Messages.insert({ message: tval, from: "anonymous", group: Session.get("current_group") });
+	  }
 	  document.getElementsByName("message")[0].value = "";
 	}
   });
 }
 
 if (Meteor.isServer) {
-  Meteor.startup(function () {
-    // code to run on server at startup
-  });
+  Meteor.startup(function () {});
 }

@@ -1,0 +1,15 @@
+/* CSS declarations go here */
+body {
+	font-size: 16px;
+}
+
+.selected {
+	background-color: #08c;
+	padding: 5px;
+	border-radius: 5px;
+	color: white;
+}
+
+.cgroup {}
+
+.pmessage {}
