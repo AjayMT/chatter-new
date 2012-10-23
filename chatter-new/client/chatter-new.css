@@ -1,21 +1,21 @@
 /* CSS declarations go here */
 body {
-	font-size: 16px;
+    font-size: 16px;
 }
 
 .group {
-	padding: 5px;
+    padding: 5px;
 }
 
 .red {
-	color: red;
+    color: red;
 }
 
 .group.selected {
-	background-color: #08c;
-	padding: 5px;
-	border-radius: 5px;
-	color: white;
+    background-color: #08c;
+    padding: 5px;
+    border-radius: 5px;
+    color: white;
 }
 
 .cgroup {}
