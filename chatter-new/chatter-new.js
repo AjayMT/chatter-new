@@ -18,6 +18,14 @@ if (Meteor.isClient) {
 		return Groups.find({}, { sort: { name: 1 } });
 	};
 
+	Template.mainPage.warning = function () {
+		if (Meteor.user()) {
+			if (!Meteor.user().username) {
+				return "It is recommended that you don't sign in only with the default accounts system, because your email will be displayed whenever you post something."
+			}
+		}
+	}
+
 	Template.group.selected = function () {
 		if (Session.equals("current_group", this._id)) {
 			return "selected";
