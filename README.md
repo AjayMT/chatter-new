@@ -1,7 +1,7 @@
 # Chattr, The Meteor Chat App
 
 Chattr is a simple chat app created with Meteor (http://www.meteor.com). It uses Meteor's auth system, and allows users to
-sign in with Facebook, Twitter, Google, and the default accounts system. Chattr is in progress, so it still might be a 
+sign in with Facebook, Twitter, or Google. Chattr is in progress, so it still might be a 
 bit buggy.
 
 ## Installation And Running
