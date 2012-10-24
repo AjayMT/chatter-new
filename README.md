@@ -10,6 +10,11 @@ To install Chattr:
 
 1. Install Meteor: `$ curl https://install.meteor.com/ | /bin/sh`
 
-2. Clone this repo: `$ git clone http://github.com/AjayMT/chattr.git/`
+2. Clone this repo: `$ git clone http://github.com/AjayMT/chatter-new.git/`
 
-3. Run the app: `$ cd chattr/chatter-new; meteor`
+3. Run the app: `$ cd chatter-new/chattr; meteor`
+
+#### Note:
+
+Chattr is a better version of my previous app, Chatter. I am still keeping Chatter's source code for those who want it, but
+that project is closed.
