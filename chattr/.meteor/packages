@@ -7,7 +7,6 @@ preserve-inputs
 accounts-base
 accounts-facebook
 accounts-ui
-accounts-password
 autopublish
 bootstrap
 accounts-twitter
