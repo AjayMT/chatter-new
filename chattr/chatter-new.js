@@ -43,18 +43,18 @@ if (Meteor.isClient) {
     Template.mainPage.events({
         "click button.cgroup": function () {
             var tval = document.getElementsByName("gname")[0].value;
-            Groups.insert({ name: tval });
+            if (tval != "" && !Groups.findOne({ name: tval })) { Groups.insert({ name: tval }); }
             document.getElementsByName("gname")[0].value = "";
         },
         "click button.pmessage": function () {
             var tval = document.getElementsByName("message")[0].value;
             if (Meteor.user()) {
-                if (Meteor.user().profile.name) {
+                if (Meteor.user().profile.name && tval != "") {
                     Messages.insert({ message: tval, from: Meteor.user().profile.name, group: Session.get("current_group") });
-                } else {
+                } else if(tval != "") {
                     Messages.insert({ message: tval, from: Meteor.user().emails[0].address, group: Session.get("current_group") });
                 }
-            } else {
+            } else if(tval != "") {
                 Messages.insert({ message: tval, from: "anonymous", group: Session.get("current_group") });
             }
             document.getElementsByName("message")[0].value = "";
